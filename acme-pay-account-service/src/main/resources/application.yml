@@ -1,0 +1,17 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    password: postgres
+    username: postgres
+    url : jdbc:postgresql://localhost:5433/account-service
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+  flyway:
+    baseline-on-migrate: true
+    enabled: true
