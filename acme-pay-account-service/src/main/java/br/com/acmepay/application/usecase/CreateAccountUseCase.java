@@ -6,6 +6,8 @@ import br.com.acmepay.application.ports.out.ICreateAccount;
 import br.com.acmepay.application.util.UseCase;
 import lombok.AllArgsConstructor;
 
+import java.util.List;
+
 @UseCase
 @AllArgsConstructor
 public class CreateAccountUseCase implements ICreateAccountUseCase {
@@ -15,5 +17,10 @@ public class CreateAccountUseCase implements ICreateAccountUseCase {
     @Override
     public void execute(AccountDomain domain) {
         domain.create(createAccount);
+    }
+
+    @Override
+    public List<AccountDomain> findAll() {
+        return createAccount.findAll();
     }
 }

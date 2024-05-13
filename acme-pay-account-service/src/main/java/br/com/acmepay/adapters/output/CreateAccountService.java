@@ -7,6 +7,9 @@ import br.com.acmepay.application.ports.out.ICreateAccount;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @AllArgsConstructor
 @Service
 public class CreateAccountService implements ICreateAccount {
@@ -24,5 +27,18 @@ public class CreateAccountService implements ICreateAccount {
                 .close(accountDomain.getClose())
         .build();
             repository.save(entity);
+    }
+
+    @Override
+    public List<AccountDomain> findAll() {
+        List<AccountDomain> listAccountDomain = repository.findAll().stream().map(x -> AccountDomain.builder()
+                .agency(x.getAgency())
+                .number(x.getNumber())
+                .balance(x.getBalance())
+                .created_at(x.getCreated_at())
+                .updated_at(x.getUpdated_at())
+                .close(x.getClose())
+                .build()).collect(Collectors.toList());
+        return listAccountDomain;
     }
 }
