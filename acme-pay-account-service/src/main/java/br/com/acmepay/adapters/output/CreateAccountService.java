@@ -22,6 +22,7 @@ public class CreateAccountService implements ICreateAccount {
                 .created_at(accountDomain.getCreated_at())
                 .updated_at(accountDomain.getUpdated_at())
                 .close(accountDomain.getClose())
+                .document(accountDomain.getDocument())
         .build();
             repository.save(entity);
     }

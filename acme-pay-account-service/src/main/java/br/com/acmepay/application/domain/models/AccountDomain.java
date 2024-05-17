@@ -21,6 +21,7 @@ public class AccountDomain {
     private Boolean close;
     private LocalDateTime created_at;
     private LocalDateTime updated_at;
+    private String document;
 
     public void create(ICreateAccount createAccount) {
         createAccount.execute(this);

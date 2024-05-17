@@ -31,4 +31,5 @@ public class AccountEntity {
     private Boolean close;
     private LocalDateTime created_at;
     private LocalDateTime updated_at;
+    private String document;
 }

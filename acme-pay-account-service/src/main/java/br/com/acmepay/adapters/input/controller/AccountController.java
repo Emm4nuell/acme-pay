@@ -26,6 +26,7 @@ public class AccountController implements IAccountResourceAPI {
                 .agency(request.getAgency())
                 .number(request.getNumber())
                 .balance(request.getBalance())
+                .document(request.getDocument())
                 .build();
         createAccountUseCase.execute(domain);
         return AccountResponse.builder()
